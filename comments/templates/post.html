@@ -1,0 +1,20 @@
+<title>{{ post.title }}</title>
+<h1>{{ post.title }}</h1>
+<h2>{{ post.author }}</h2>
+<p>{{ post.content }}</p>
+
+<h2>Comments on this post</h2>
+{% for comment in commments%}
+  {{comment.content}}
+  Posted At = {{comment.post_time}}
+  By = {{comment.author}}
+{%endfor%}
+
+<form action="/new_comment" method="post">
+  <input type ="hidden" name="post_key" value="{{post.key.urlsafe()}}">
+  <h2>Leave a comment</h2>
+  <textarea name = "content"></textarea><br>
+  Your name: <input name = "author"><br>
+  <input name ="author"><br>
+  <button>Leave a comment</button>
+</form>

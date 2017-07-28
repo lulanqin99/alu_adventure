@@ -1,0 +1,13 @@
+<!DOCTYPE>
+<title>Blog</title>
+
+<h1>BLog</h>
+
+  <article>
+{% for item in posts%}
+<h2> <a href="/post?key={{ item.key.urlsafe() }}">{{item.title}}</a></h2>
+<p>
+  {{item.content}}
+</p>
+{%endfor%}
+  </article>

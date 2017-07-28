@@ -1,0 +1,52 @@
+from main import Post
+from main import Comment
+
+email = "yah@google.com"
+title = "My First Blog Post"
+content = "I love life"
+
+post = Post(author=email, title=title, content=content)
+post.put()
+
+
+
+
+from main import Post
+from main import Comment
+
+post.query = Post.query()
+posts = post_query.fetch()
+
+for post in posts:
+  print post.title
+
+
+
+from main import Post
+from main import Comment
+
+post_query = Post.query()
+posts = post_query.fetch()
+
+one_post = post.query.get()
+post_key = one_post.key
+print one_post.key.urlsafe()
+
+
+
+from google.appengine.ext import ndb
+from main import Post
+from main import Comment
+
+post_query = Post.query()
+posts = post_query.fetch()
+
+one_post = post_query.get()
+post_key = one_post.key
+print one_post.key.urlsafe()
+
+urlsafe_key = 'agxkZXZ-Y29tbWVudHNyEQsSBFBvc3QYgICAgICAgAkM'
+post_key = ndb.Key(urlsafe=urlsafe_key)
+post = post_key.get()
+
+print post.title

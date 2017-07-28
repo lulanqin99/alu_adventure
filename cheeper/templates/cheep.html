@@ -1,0 +1,26 @@
+<!DOCTYPE>
+Hello from Cheep!
+
+{% if current_user%}:
+
+<p> Welcome, {{current_user}}!</p><br>
+<a href = "{{logout_url}}">Log Out</a><br>
+
+
+<form method="post" action ="/">
+  <textarea name ='message' rows="8" cols="50" placeholder="Type anything"></textarea>
+  <p><button>CHEEP!</button>
+</form>
+
+{% else %}
+
+<a href = "{{login_url}}">Log In</a><br>
+
+{% endif %}
+
+
+{% for cheep in cheep %}  
+user:{{cheep.email}}<br>
+message:{{cheep.message}}<br>
+post time:{{cheep.post_time}}
+{% endfor %}
